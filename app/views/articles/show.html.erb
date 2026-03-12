@@ -1,0 +1,42 @@
+<% content_for :title, @article.title %>
+
+<div style="max-width: 900px; margin: 0 auto;">
+
+  <%# Caixa do artigo centralizada %>
+  <div class="article-content-container">
+
+    <% if @article.cover_image.present? %>
+      <div style="text-align: center; margin-bottom: 20px; background-color: #91766E; border-radius: 10px; padding: 20px;">
+        <img src="<%= @article.cover_image %>" alt="<%= @article.title %>" style="max-width: 300px; max-height: 300px; object-fit: contain;">
+      </div>
+    <% end %>
+
+    <h1><%= @article.title %></h1>
+
+    <%= simple_format(h(@article.body)) %>
+
+  </div>
+
+  <%# Links embaixo da caixa, alinhados à esquerda %>
+  <ul style="margin: 12px 0 24px 0; padding-left: 20px;">
+    <li><%= link_to "Edit", edit_article_path(@article) %></li>
+    <li><%= link_to "Destroy", article_path(@article), data: {
+                      turbo_method: :delete,
+                      turbo_confirm: "Are you sure?"
+                    } %></li>
+    <li><%= link_to "Return to Articles", articles_path %></li>
+  </ul>
+
+  <%# Caixa de comentários — mais larga %>
+  <div class="comments-box">
+    <h2>Comments</h2>
+    <%= render @article.comments %>
+  </div>
+
+  <%# Caixa de adicionar comentário — mais larga %>
+  <div class="comments-box" style="margin-top: 16px;">
+    <h2>Add a comment:</h2>
+    <%= render 'comments/form' %>
+  </div>
+
+</div>

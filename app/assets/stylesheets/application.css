@@ -1,0 +1,4 @@
+/* Arquivo: app/assets/stylesheets/application.css */
+
+/* Importa os estilos dos artigos */
+@import "articles.css";

@@ -1,0 +1,11 @@
+
+
+<% unless comment.archived? %>
+  <div class="comment-item">
+    <strong class="comment-author"><%= comment.commenter %></strong>
+    <p class="comment-body"><%= comment.body %></p>
+    <%= link_to "Destroy", [comment.article, comment],
+          class: "comment-destroy",
+          data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } %>
+  </div>
+<% end %>

@@ -1,0 +1,17 @@
+<%= form_with model: [ @article, @article.comments.build ] do |form| %>
+  <div class="field">
+    <%= form.label :commenter %><br>
+    <%= form.text_field :commenter %>
+  </div>
+  <div class="field">
+    <%= form.label :body %><br>
+    <%= form.text_area :body %>
+  </div>
+  <div class="field">
+    <%= form.label :status %><br>
+    <%= form.select :status, ['public', 'private', 'archived'], selected: 'public' %>
+  </div>
+  <div class="actions">
+    <%= form.submit 'Create Comment', class: 'create-comment-button' %>
+  </div>
+<% end %>

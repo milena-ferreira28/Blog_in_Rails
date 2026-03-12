@@ -1,0 +1,35 @@
+<div class="container">
+  <header>
+    <h1>My First Blog</h1>
+  </header>
+
+  <main>
+    <div class="article-container">
+      <h1>Articles</h1>
+      <p>Our blog has <%= Article.public_count %> articles and counting!</p>
+    </div>
+
+    <div class="articles-grid">
+      <% @articles.each do |article| %>
+        <% unless article.archived? %>
+          <div class="article-grid-item">
+            <%= link_to article_path(article) do %>
+              <% if article.cover_image.present? %>
+                <img src="<%= article.cover_image %>" alt="<%= article.title %>" class="article-cover-img">
+              <% else %>
+                <div class="article-cover-placeholder">No image</div>
+              <% end %>
+              <p class="article-grid-title"><%= article.title %></p>
+            <% end %>
+          </div>
+        <% end %>
+      <% end %>
+    </div>
+
+    <%= link_to "New Article", new_article_path %>
+  </main>
+
+  <footer>
+    <p>&copy; <%= Time.now.year %> My First Blog</p>
+  </footer>
+</div>

@@ -1,0 +1,339 @@
+/* Arquivo: app/assets/stylesheets/articles.css */
+
+/* =======================================================================
+   BODY — Estilização geral da página
+========================================================================== */
+
+body {
+    background-color: #F6ECE3;
+    font-family: 'Times New Roman', Times, serif;
+    color: #000000;
+    margin: 0;
+    padding: 0;
+    padding-bottom: 60px; /* Espaço para o footer fixo não cobrir o conteúdo */
+}
+
+/* =======================================================================
+   LINKS — Estilização global de todos os links
+========================================================================== */
+
+a {
+    color: #4A5D8C; /* Azul acinzentado, combina com o fundo */
+    text-decoration: none;
+    font-weight: bold;
+}
+
+a:hover {
+    color: #3954ad; /* Azul mais vibrante ao passar o mouse */
+    text-decoration: underline;
+}
+
+a:visited {
+    color: #734996; /* Roxo suave, mantendo harmonia com o design */
+}
+
+/* =======================================================================
+   HEADER — Cabeçalho da página inicial
+========================================================================== */
+
+header {
+    background-color: #B7A7A9;
+    font-size: 20px;
+    color: #000000;
+    padding: 10px;
+    border-radius: 15px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.7);
+    text-align: center;
+}
+
+/* =======================================================================
+   CONTAINER — Caixa principal que envolve o conteúdo de cada página
+========================================================================== */
+
+.container {
+    background-color: #91766E;
+    max-width: 900px;
+    margin: 40px auto; /* Centraliza horizontalmente com espaço acima e abaixo */
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.7);
+    font-size: 16px;
+}
+
+/* =======================================================================
+   MAIN — Área principal de conteúdo
+========================================================================== */
+
+main {
+    font-size: 18px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* =======================================================================
+   PÁGINA INICIAL — Título e contagem de artigos
+========================================================================== */
+
+.article-container {
+    font-size: 18px;
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+/* =======================================================================
+   GRID DE ARTIGOS — Grade com as capas e títulos dos artigos
+========================================================================== */
+
+.articles-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center; /* Centraliza os cards mesmo quando há menos de 4 */
+    gap: 16px;
+    margin: 20px 0;
+    background-color: #91766E; /* Fundo para preencher os espaços entre os cards */
+    border-radius: 8px;
+    padding: 4px;
+}
+
+/* Card individual de cada artigo */
+.article-grid-item {
+    width: calc(25% - 12px); /* 4 cards por linha com espaço entre eles */
+    background-color: #B7A7A9;
+    border-radius: 8px;
+    padding: 8px;
+    overflow: hidden; /* Impede imagens SVG de vazarem para fora do card */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Imagem de capa do card */
+.article-cover-img {
+    width: 80%;
+    height: 160px;
+    object-fit: contain; /* Mostra a imagem inteira sem distorcer */
+    display: block;
+    margin: 0 auto;
+    padding: 8px;
+}
+
+/* Placeholder quando o artigo não tem imagem de capa */
+.article-cover-placeholder {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    background-color: #B7A7A9;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+    color: #5A4D4D;
+}
+
+/* Título do artigo embaixo da imagem no card */
+.article-grid-title {
+    text-align: center;
+    margin-top: 8px;
+    font-size: 14px;
+    font-weight: bold;
+    color: #000;
+}
+
+/* Data de criação embaixo do título no card */
+.article-grid-date {
+    text-align: center;
+    font-size: 11px;
+    color: #5A4D4D;
+    margin-top: 4px;
+}
+
+/* =======================================================================
+   PÁGINA DO ARTIGO — Container do conteúdo do artigo
+========================================================================== */
+
+.article-content-container {
+    background-color: #91766E;
+    max-width: 800px;
+    margin: 40px auto; /* Centraliza na tela */
+    padding: 20px;
+    padding-bottom: 20px;
+    border-radius: 15px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.7);
+}
+
+/* Título do artigo */
+.article-content-container h1 {
+    text-align: center;
+    color: #000000;
+}
+
+/* Texto do artigo */
+.article-content-container p {
+    color: #000000;
+    line-height: 1.6;
+}
+
+/* =======================================================================
+   COMENTÁRIOS — Seção de comentários abaixo do artigo
+========================================================================== */
+
+/* Wrapper geral da seção de comentários */
+.comments-section {
+    position: static;
+    width: auto;
+    margin-top: 20px;
+}
+
+/* Caixas de "Comments" e "Add a comment" */
+.comments-box {
+    background-color: #B7A7A9;
+    border-radius: 8px;
+    padding: 20px 24px;
+    width: 100%;
+    max-width: 800px; /* Mesma largura do container do artigo */
+    margin: 0 auto 16px auto; /* Centraliza e adiciona espaço entre as caixas */
+}
+
+.comments-box h2 {
+    margin-bottom: 12px;
+}
+
+/* Card individual de cada comentário */
+.comment-item {
+    background-color: #F2E8DF;
+    border-radius: 8px;
+    padding: 12px 16px;
+    margin-bottom: 10px;
+}
+
+/* Nome do autor do comentário */
+.comment-author {
+    font-size: 0.85rem;
+    color: #3A2218;
+    display: block;
+    margin-bottom: 4px;
+}
+
+/* Texto do comentário */
+.comment-body {
+    font-size: 0.95rem;
+    color: #2C1A12;
+    margin-bottom: 8px;
+    line-height: 1.5;
+}
+
+/* Link de deletar comentário */
+.comment-destroy {
+    font-size: 0.75rem;
+    color: #7A3A2A;
+    font-weight: normal;
+}
+
+.comment-destroy:hover {
+    color: #c0392b;
+}
+
+/* Campos do formulário de adicionar comentário */
+.comments-box .field input,
+.comments-box .field textarea,
+.comments-box .field select {
+    background-color: #F2E8DF;
+    border: 1px solid #9C6347;
+    border-radius: 6px;
+    padding: 8px 10px;
+    width: 100%;
+}
+
+/* =======================================================================
+   FORMULÁRIOS — Estilização dos formulários de criar/editar artigo
+========================================================================== */
+
+/* Espaçamento entre os campos */
+.field {
+    margin-bottom: 15px;
+    text-align: left;
+}
+
+.field label {
+    font-weight: bold;
+    display: block;
+    margin-bottom: 5px;
+}
+
+/* Inputs, textareas e selects */
+.field input,
+.field textarea,
+.field select {
+    width: 100%;
+    padding: 8px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+/* Mensagem de erro de validação */
+.error-message {
+    color: red;
+    font-size: 14px;
+    margin-top: 5px;
+}
+
+/* Botão de submit centralizado */
+.actions {
+    text-align: center;
+}
+
+.actions input {
+    background-color: #5A4D4D;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.actions input:hover {
+    background-color: #3E3636;
+}
+
+/* Link de voltar centralizado */
+.back-link {
+    display: block;
+    margin-top: 15px;
+    text-align: center;
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.back-link:hover {
+    text-decoration: underline;
+}
+
+/* =======================================================================
+   PÁGINA ABOUT — Texto da página sobre o blog
+========================================================================== */
+
+.article-body p {
+    margin-bottom: 16px;
+    line-height: 1.75;
+    font-size: 1rem;
+    color: #2C1A12;
+}
+
+.article-body p:last-child {
+    margin-bottom: 0;
+}
+
+/* =======================================================================
+   FOOTER — Rodapé fixo no fundo da tela
+========================================================================== */
+
+footer {
+    background-color: #B7A7A9;
+    color: #000000;
+    text-align: center;
+    padding: 8px;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
